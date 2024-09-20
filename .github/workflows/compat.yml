@@ -24,6 +24,7 @@ jobs:
             readyCondition: Init AD version hash ring successfully
           - versionTitle: OpenSearch 2.17.0
             dockerCommand: |
+              export LANG=en_US.UTF-8
               docker run -d --rm --name es -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9600 -e "discovery.type=single-node" -e DISABLE_SECURITY_PLUGIN="true" -e DISABLE_INSTALL_DEMO_CONFIG="true" opensearchproject/opensearch:2.17.0
             readyCondition: Cluster health status changed from [YELLOW] to [GREEN]
       fail-fast: false
